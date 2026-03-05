@@ -1,0 +1,327 @@
+@import "tailwindcss";
+
+:root {
+  /* Color variables */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-secondary: #f6f6f6;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #22c55e;
+  --color-success-hover: #16a34a;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  --color-border: #e5e7eb;
+  --color-bg-main: #ffffff;
+  --color-bg-sidebar: #f6f6f6;
+  --color-bg-navbar: #ffffff;
+  --color-text-main: #374151;
+  --color-text-secondary: #6b7280;
+}
+
+/* Layout system */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: auto;
+}
+
+/* App wrapper */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.navbar-container {
+  background-color: var(--color-bg-navbar);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Sidebar container */
+.sidebar-container {
+  width: 280px;
+  height: 100%;
+  background-color: var(--color-bg-sidebar);
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
+/* Board */
+.board {
+  flex: 1;
+  padding: 1rem 1rem 3rem 1rem;
+  overflow-y: auto;
+}
+
+/* Cliente container */
+.client-container {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: var(--color-text-secondary);
+  padding: 0.25rem;
+}
+
+.close-button:hover {
+  color: var(--color-text-main);
+}
+
+/* HTTP method colors */
+.method-get {
+  color: #3b82f6;
+}
+
+.method-post {
+  color: #22c55e;
+}
+
+.method-put {
+  color: #eab308;
+}
+
+.method-patch {
+  color: #9333ea;
+}
+
+.method-delete {
+  color: #dc2626;
+}
+
+.method-head {
+  color: #6b7280;
+}
+
+.method-options {
+  color: #db2777;
+}
+
+/* Collection components */
+.collection-container {
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+  background-color: rgb(230, 230, 230);
+  overflow: visible;
+  position: relative;
+}
+
+/* Button variations */
+.btn-primary {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-danger {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-danger);
+  color: white;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+/* Searchbar */
+.searchbar-container {
+  background-color: rgb(230, 230, 230);
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+/* Response container */
+.response-container {
+  width: 33.333%;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #f9fafb;
+  border-left: 1px solid var(--color-border);
+  padding: 1rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+.response-preview {
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  overflow: auto;
+  width: 100%;
+  max-height: calc(100vh - 12rem);
+}
+
+/* Formattazione per tutti i contenuti pre e text response */
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Correzione specifica per testi molto lunghi senza spazi */
+.word-break-all {
+  word-break: break-all;
+}
+
+/* Notifications */
+.snackbar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid;
+  font-size: 0.875rem;
+  z-index: 50;
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.snackbar-success {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.snackbar-error {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.snackbar-info {
+  border-color: var(--color-info);
+  color: var(--color-info);
+}
+
+/* Form elements */
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  max-width: 100%;
+}
+
+.form-select {
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 24rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar-container {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    position: relative;
+    top: 0;
+  }
+
+  .response-container {
+    width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
+}
